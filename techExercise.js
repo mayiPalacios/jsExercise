@@ -4,23 +4,19 @@ function exercise(arr) {
   function getValueArr(arrElement) {
     if (arrElement != undefined) {
       for (let i = 0; i < arrElement.length; i++) {
-        if (arrElement.length > 2) {
-          insertValue(arrElement[Math.floor(arrElement.length / 2)]);
-
-          arrElement.splice(Math.floor(arrElement.length / 2), 1);
-        }
-        if (i !== arrElement.length - 1 && arrElement.length) {
-          if (arrElement.length > 2) {
+        if (i !== arrElement.length - 1) {
+          while (arrElement.length > 2) {
             insertValue(arrElement[Math.floor(arrElement.length / 2)]);
             arrElement.splice(Math.floor(arrElement.length / 2), 1);
           }
-          lastElemt.unshift(arrElement[arrElement.length - 1]);
 
           insertValue(arrElement[i]);
+          lastElemt.unshift(arrElement[arrElement.length - 1]);
         }
       }
     }
   }
+
   function insertValue(value) {
     newArray.push(...value);
   }
@@ -37,6 +33,6 @@ function exercise(arr) {
 }
 
 arr = [["a", "d", "k"], ["b", "f"], ["h"]];
-arr1 = [["a", "d", "k", "l"], ["b", "t", "f"], ["h"]];
+arr1 = [["a", "d", "k", "l"], ["b", "t", "w", "f"], ["h"]];
 
-console.log(exercise(arr));
+console.log(exercise(arr1));
